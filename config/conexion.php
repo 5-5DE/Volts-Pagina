@@ -1,12 +1,18 @@
+    
 <?php
 
-$servidor = 'localhost';
-$baseDatos = 'volts';
-$usuarioMySQL = 'root';
-$claveMySQL = '';
+$servidor = getenv('MYSQLHOST') ?: 'localhost';
+$puerto = getenv('MYSQLPORT') ?: '3306';
+$baseDatos = getenv('MYSQLDATABASE') ?: 'volts';
+$usuarioMySQL = getenv('MYSQLUSER') ?: 'root';
+$claveMySQL = getenv('MYSQLPASSWORD');
+
+if ($claveMySQL === false) {
+    $claveMySQL = '';
+}
 
 $conexion = new PDO(
-    "mysql:host=$servidor;dbname=$baseDatos;charset=utf8mb4",
+    "mysql:host=$servidor;port=$puerto;dbname=$baseDatos;charset=utf8mb4",
     $usuarioMySQL,
     $claveMySQL,
     [
