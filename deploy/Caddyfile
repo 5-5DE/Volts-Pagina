@@ -1,0 +1,12 @@
+{
+    admin off
+    frankenphp
+}
+
+http://:{$PORT} {
+    root * /app/public
+    header X-Content-Type-Options nosniff
+    @internos path /config /config/* /includes /includes/*
+    respond @internos 404
+    php_server
+}

@@ -1,11 +1,9 @@
-FROM php:8.4-apache
+FROM dunglas/frankenphp:1-php8.4-trixie
 
-RUN docker-php-ext-install pdo_mysql \
-    && a2dismod mpm_event mpm_worker \
-    && a2enmod mpm_prefork headers \
-    && a2dissite 000-default
+RUN install-php-extensions pdo_mysql \
+    && cp "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
-WORKDIR /var/www/html
+WORKDIR /app/public
 COPY index.php catalogo-paquetes.php ./
 COPY acciones/ acciones/
 COPY assets/ assets/
@@ -13,8 +11,8 @@ COPY config/ config/
 COPY includes/ includes/
 COPY paginas/ paginas/
 COPY scripts/migrar-solicitudes.php /opt/volts/migrar-solicitudes.php
-COPY deploy/volts.conf /etc/apache2/sites-enabled/volts.conf
+COPY deploy/Caddyfile /etc/frankenphp/Caddyfile
 
-ENV PORT=8080 APACHE_DOCUMENT_ROOT=/var/www/html
-RUN printf 'Listen ${PORT}\n' > /etc/apache2/ports.conf && apache2ctl configtest
-CMD ["sh", "-c", "php /opt/volts/migrar-solicitudes.php && exec apache2-foreground"]
+ENV PORT=8080 VOLTS_APP_ROOT=/app/public
+RUN frankenphp validate --config /etc/frankenphp/Caddyfile --adapter caddyfile
+ENTRYPOINT ["sh", "-c", "php /opt/volts/migrar-solicitudes.php && exec frankenphp run --config /etc/frankenphp/Caddyfile --adapter caddyfile"]

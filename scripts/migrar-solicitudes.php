@@ -6,7 +6,7 @@ if (PHP_SAPI !== 'cli') {
 }
 
 try {
-    $raiz = getenv('APACHE_DOCUMENT_ROOT') ?: dirname(__DIR__);
+    $raiz = getenv('VOLTS_APP_ROOT') ?: dirname(__DIR__);
     require $raiz . '/config/conexion.php';
 
     $conexion->exec("CREATE TABLE IF NOT EXISTS usuarios (
