@@ -14,4 +14,4 @@ COPY deploy/volts.conf /etc/apache2/sites-enabled/volts.conf
 
 ENV PORT=8080 APACHE_DOCUMENT_ROOT=/var/www/html
 RUN printf 'Listen ${PORT}\n' > /etc/apache2/ports.conf
-CMD ["apache2-foreground"]
+CMD ["sh", "-c", "php /opt/volts/migrar-solicitudes.php && exec apache2-foreground"]
