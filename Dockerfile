@@ -1,0 +1,17 @@
+FROM php:8.4-apache
+
+RUN docker-php-ext-install pdo_mysql && a2enmod headers && a2dissite 000-default
+
+WORKDIR /var/www/html
+COPY index.php catalogo-paquetes.php ./
+COPY acciones/ acciones/
+COPY assets/ assets/
+COPY config/ config/
+COPY includes/ includes/
+COPY paginas/ paginas/
+COPY scripts/migrar-solicitudes.php /opt/volts/migrar-solicitudes.php
+COPY deploy/volts.conf /etc/apache2/sites-enabled/volts.conf
+
+ENV PORT=8080 APACHE_DOCUMENT_ROOT=/var/www/html
+RUN printf 'Listen ${PORT}\n' > /etc/apache2/ports.conf
+CMD ["apache2-foreground"]

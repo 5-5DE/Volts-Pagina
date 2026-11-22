@@ -1,4 +1,3 @@
-    
 <?php
 
 $servidor = getenv('MYSQLHOST') ?: 'localhost';

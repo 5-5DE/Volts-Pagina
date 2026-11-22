@@ -6,7 +6,18 @@ if (PHP_SAPI !== 'cli') {
 }
 
 try {
-    require dirname(__DIR__) . '/config/conexion.php';
+    $raiz = getenv('APACHE_DOCUMENT_ROOT') ?: dirname(__DIR__);
+    require $raiz . '/config/conexion.php';
+
+    $conexion->exec("CREATE TABLE IF NOT EXISTS usuarios (
+        id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+        correo VARCHAR(254) NOT NULL,
+        password_hash VARCHAR(255) NOT NULL,
+        nombre VARCHAR(100) NULL,
+        telefono VARCHAR(20) NULL,
+        PRIMARY KEY (id),
+        UNIQUE KEY usuarios_correo (correo)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci");
 
     $columnas = array_column($conexion->query('SHOW COLUMNS FROM usuarios')->fetchAll(), 'Field');
     if (!in_array('nombre', $columnas, true)) {
