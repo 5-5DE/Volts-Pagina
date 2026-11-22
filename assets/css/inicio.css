@@ -1,0 +1,340 @@
+/* Paleta de Inicio y Contacto, y secciones de la portada. */
+:is(.pagina-inicio, .pagina-contacto) {
+    --fondo: #191b1c;
+    --superficie: #222526;
+    --oscuro: #151718;
+    --texto: #f4f3ed;
+    --texto-secundario: #b4b6b3;
+    --acento: #edbf4a;
+    --acento-hover: #f6cf6b;
+    --primario: var(--acento);
+    --borde: #36393a;
+    font-family: "Segoe UI", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.pagina-inicio .inicio-contenido {
+    width: min(100% - 48px, 1120px);
+}
+
+.inicio-portada {
+    padding: 72px 0 76px;
+}
+
+.inicio-portada-texto {
+    max-width: 760px;
+    min-width: 0;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.inicio-portada .inicio-etiqueta {
+    justify-content: center;
+}
+
+.inicio-etiqueta {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0 0 24px;
+    color: var(--texto-secundario);
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.6;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+}
+
+.inicio-etiqueta > span {
+    width: 6px;
+    height: 6px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--acento);
+}
+
+.inicio-portada h1 {
+    margin: 0 0 24px;
+    font-size: clamp(48px, 5.8vw, 78px);
+    font-weight: 600;
+    line-height: 1.06;
+    letter-spacing: -3.5px;
+}
+
+.inicio-portada h1 span {
+    color: var(--acento);
+}
+
+.inicio-descripcion {
+    max-width: 430px;
+    margin: 0 auto 30px;
+    color: var(--texto-secundario);
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+.inicio-acciones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 18px 26px;
+}
+
+.inicio-boton {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    min-height: 48px;
+    padding: 13px 20px;
+    border: 1px solid var(--acento);
+    border-radius: 6px;
+    background: var(--acento);
+    color: var(--oscuro);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-decoration: none;
+    transition: background-color 160ms, border-color 160ms;
+}
+
+.inicio-boton:hover {
+    border-color: var(--acento-hover);
+    background: var(--acento-hover);
+}
+
+.inicio-boton > .icono-accion {
+    width: 20px;
+    height: 20px;
+}
+
+.inicio-enlace {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 44px;
+    color: var(--texto);
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.inicio-enlace:hover {
+    color: var(--acento);
+}
+
+.inicio-nota {
+    margin: 25px 0 0;
+    color: var(--texto-secundario);
+    font-size: 12px;
+}
+
+.inicio-servicios {
+    padding: 44px 0 58px;
+    border-top: 1px solid var(--borde);
+    scroll-margin-top: 28px;
+}
+
+.inicio-seccion-encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+}
+
+.inicio-seccion-encabezado .inicio-etiqueta {
+    margin-bottom: 10px;
+}
+
+.pagina-inicio h2 {
+    margin: 0;
+    font-size: clamp(24px, 2.8vw, 30px);
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.8px;
+}
+
+.inicio-servicios-lista {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 36px;
+    margin: 34px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.inicio-servicios-lista li {
+    min-width: 0;
+    padding-right: 28px;
+}
+
+.inicio-servicios-lista li + li {
+    padding-left: 32px;
+    border-left: 1px solid var(--borde);
+}
+
+.inicio-servicio-icono {
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin-bottom: 14px;
+    color: var(--acento);
+}
+
+.inicio-servicios-lista h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.inicio-servicios-lista p {
+    margin: 0;
+    color: var(--texto-secundario);
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+.inicio-contacto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 28px;
+    margin-bottom: 48px;
+    padding: 32px 36px;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    background: var(--superficie);
+}
+
+.inicio-contacto p {
+    margin: 10px 0 0;
+    color: var(--texto-secundario);
+    font-size: 14px;
+}
+
+.inicio-boton-contacto {
+    flex-shrink: 0;
+    border-color: #666960;
+    background: transparent;
+    color: var(--texto);
+}
+
+.inicio-boton-contacto:hover {
+    border-color: var(--acento);
+    background: transparent;
+    color: var(--acento);
+}
+
+.pagina-inicio .footer {
+    padding: 22px 24px;
+    border-top: 1px solid var(--borde);
+    background: var(--fondo);
+    color: var(--texto-secundario);
+    font-size: 12px;
+}
+
+@media (max-width: 1000px) {
+    .inicio-portada h1 {
+        letter-spacing: -2.5px;
+    }
+
+    .inicio-servicios-lista {
+        gap: 24px;
+    }
+
+    .inicio-servicios-lista li {
+        padding-right: 0;
+    }
+
+    .inicio-servicios-lista li + li {
+        padding-left: 24px;
+    }
+}
+
+@media (max-width: 700px) {
+    .inicio-portada {
+        padding: 44px 0 40px;
+    }
+
+    .inicio-portada h1 {
+        font-size: clamp(48px, 10vw, 66px);
+    }
+
+    .inicio-descripcion {
+        max-width: 400px;
+        font-size: 16px;
+    }
+
+    .inicio-servicios {
+        padding: 34px 0 36px;
+    }
+
+    .inicio-seccion-encabezado {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .inicio-servicios-lista {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-top: 24px;
+    }
+
+    .inicio-servicios-lista li,
+    .inicio-servicios-lista li + li {
+        display: grid;
+        grid-template-columns: 32px 1fr;
+        align-items: start;
+        gap: 4px 18px;
+        padding: 0;
+        border: 0;
+    }
+
+    .inicio-servicio-icono {
+        grid-row: 1 / 3;
+        margin: 2px 0 0;
+    }
+
+    .inicio-servicios-lista h3 {
+        margin: 0;
+    }
+
+    .inicio-servicios-lista p {
+        grid-column: 2;
+    }
+
+    .inicio-contacto {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+        margin-bottom: 32px;
+        padding: 26px;
+    }
+}
+
+@media (max-width: 650px) {
+    .pagina-inicio .inicio-contenido {
+        width: calc(100% - 40px);
+    }
+
+    .inicio-etiqueta {
+        font-size: 10px;
+        letter-spacing: 1.3px;
+    }
+
+    .inicio-acciones {
+        gap: 12px 22px;
+    }
+
+    .inicio-nota {
+        margin-top: 18px;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .inicio-boton {
+        transition: none;
+    }
+}

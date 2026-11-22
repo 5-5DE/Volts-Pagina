@@ -1,0 +1,197 @@
+/* Cabecera de Volts compartida por todas las páginas. */
+.cabecera-inicio {
+    --fondo: #191b1c;
+    --superficie: #222526;
+    --oscuro: #151718;
+    --texto: #f4f3ed;
+    --texto-secundario: #b4b6b3;
+    --acento: #edbf4a;
+    --acento-hover: #f6cf6b;
+    --primario: var(--acento);
+    --borde: #36393a;
+    padding: 16px;
+    border-bottom: 1px solid var(--borde);
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.cabecera-inicio .logo {
+    gap: 8px;
+    align-items: center;
+    color: var(--texto);
+    font-size: 29px;
+    letter-spacing: -1.5px;
+}
+
+.cabecera-inicio .logo-icono {
+    display: block;
+    width: 26px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.cabecera-inicio nav {
+    gap: 30px;
+}
+
+.cabecera-inicio nav > a,
+.cabecera-inicio .menu-explorar summary {
+    color: var(--texto-secundario);
+}
+
+.cabecera-inicio nav a:hover,
+.cabecera-inicio nav a[aria-current="page"],
+.cabecera-inicio .menu-explorar summary:hover,
+.cabecera-inicio .menu-explorar[open] summary,
+.cabecera-inicio .menu-explorar-actual summary {
+    color: var(--acento);
+    text-decoration: none;
+}
+
+.cabecera-inicio nav a.navegacion-acceso {
+    margin-left: 8px;
+    border: 1px solid #565955;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--texto);
+    font-weight: 500;
+}
+
+.cabecera-inicio nav a.navegacion-acceso:hover,
+.cabecera-inicio nav a.navegacion-acceso[aria-current="page"] {
+    border-color: var(--acento);
+    background: transparent;
+    color: var(--acento);
+}
+
+.menu-perfil {
+    position: relative;
+    flex-shrink: 0;
+    margin-left: 4px;
+}
+
+.menu-perfil > summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid #565955;
+    border-radius: 50%;
+    background: transparent;
+    list-style: none;
+    cursor: pointer;
+}
+
+.menu-perfil > summary::-webkit-details-marker {
+    display: none;
+}
+
+.menu-perfil > summary:hover,
+.menu-perfil[open] > summary {
+    border-color: var(--acento);
+    background: var(--superficie);
+}
+
+.menu-perfil > summary:focus-visible {
+    outline: 2px solid var(--acento);
+    outline-offset: 4px;
+}
+
+.menu-perfil-icono {
+    display: block;
+    width: 22px;
+    height: 22px;
+}
+
+.menu-perfil-panel {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    z-index: 30;
+    width: min(280px, calc(100vw - 32px));
+    padding: 16px;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    background: var(--superficie);
+    color: var(--texto);
+    box-shadow: 0 12px 28px rgb(0 0 0 / 25%);
+    text-align: left;
+}
+
+.menu-perfil-etiqueta {
+    margin: 0 0 6px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.menu-perfil-correo {
+    margin: 0 0 14px;
+    color: var(--texto-secundario);
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.menu-perfil .sesion-salir {
+    margin: 0;
+    padding-top: 8px;
+    border-top: 1px solid var(--borde);
+}
+
+.menu-perfil .sesion-salir button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 44px;
+    padding: 10px;
+    border: 0;
+    border-radius: 4px;
+    background: transparent;
+    color: var(--texto);
+    font: inherit;
+    font-size: 14px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.menu-perfil .sesion-salir button:hover {
+    background: var(--oscuro);
+    color: var(--acento);
+}
+
+.menu-perfil .sesion-salir button:focus-visible {
+    outline: 2px solid var(--acento);
+    outline-offset: 2px;
+}
+
+@media (max-width: 650px) {
+    .cabecera-inicio {
+        align-items: flex-start;
+        gap: 8px;
+        padding: 16px 16px 12px;
+    }
+
+    .cabecera-inicio nav {
+        justify-content: center;
+        gap: 14px;
+    }
+
+    .cabecera-inicio nav a,
+    .cabecera-inicio .menu-explorar {
+        font-size: 12px;
+    }
+
+    .cabecera-inicio nav a.navegacion-acceso {
+        margin-left: 0;
+        padding: 8px 10px;
+    }
+
+    .menu-perfil {
+        margin-left: auto;
+    }
+}

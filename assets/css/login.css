@@ -1,0 +1,326 @@
+﻿/* Login */
+.pagina-login,
+.pagina-registro {
+    min-height: 100svh;
+}
+
+.login-main {
+    flex: 1;
+    display: grid;
+    place-items: center;
+    padding: 48px 24px;
+}
+
+.acceso {
+    width: 100%;
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.acceso-presentacion {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px;
+    background: var(--oscuro);
+    border-top: 5px solid var(--acento);
+}
+
+.acceso-etiqueta {
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: var(--acento);
+}
+
+.rayo-grande, .rayo-destello {
+    display: block;
+    object-fit: contain;
+}
+
+.rayo-grande {
+    width: 82px;
+    height: 120px;
+    margin: 38px 0 26px;
+}
+
+.acceso-presentacion h1 {
+    font-size: clamp(32px, 4vw, 44px);
+    line-height: 1.12;
+    letter-spacing: -1px;
+    margin: 0 0 18px;
+}
+
+.acceso-presentacion p {
+    color: var(--texto-secundario);
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0 0 36px;
+    max-width: 290px;
+}
+
+.acceso-firma {
+    margin-top: auto;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--texto-secundario);
+}
+
+.acceso-formulario {
+    min-width: 0;
+    padding: 44px 40px;
+    background: var(--superficie);
+}
+
+.acceso-formulario h2 {
+    margin: 0 0 10px;
+    font-size: 28px;
+}
+
+.acceso-intro {
+    margin: 0 0 32px;
+    color: var(--texto-secundario);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.acceso-formulario label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 22px 0 9px;
+}
+
+.acceso-formulario input {
+    width: 100%;
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid #858985;
+    border-radius: 3px;
+    font: inherit;
+    font-size: 16px;
+    background: var(--oscuro);
+    color: var(--texto);
+    color-scheme: dark;
+}
+
+.acceso-formulario input::placeholder {
+    color: #b6b9b5;
+}
+
+.acceso-formulario input:focus-visible {
+    outline: 2px solid var(--acento);
+    outline-offset: 3px;
+}
+
+.boton-acceso {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    min-height: 50px;
+    margin-top: 28px;
+    padding: 12px 18px;
+    border: 0;
+    border-radius: 3px;
+    background: var(--acento);
+    color: var(--oscuro);
+    font: bold 16px Arial, sans-serif;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.boton-acceso:hover {
+    background: var(--acento-hover);
+}
+
+.boton-acceso > .icono-accion {
+    width: 22px;
+    height: 26px;
+}
+
+.nota-demo {
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--texto-secundario);
+    margin: 16px 0 0;
+}
+
+.acceso-ayuda {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    justify-content: space-between;
+    border-top: 1px solid var(--borde);
+    margin-top: 28px;
+    padding-top: 22px;
+    font-size: 13px;
+    color: var(--texto-secundario);
+}
+
+.acceso-ayuda a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--acento);
+    text-underline-offset: 4px;
+}
+
+.acceso-registro {
+    margin: 24px 0 0;
+    color: var(--texto-secundario);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.acceso-registro a {
+    color: var(--acento);
+    font-weight: bold;
+    text-underline-offset: 4px;
+}
+
+.acceso-registro a:focus-visible {
+    outline: 2px solid var(--acento);
+    outline-offset: 4px;
+}
+
+.acceso-nota {
+    margin: 8px 0 0;
+    color: var(--texto-secundario);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.login-footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--texto-secundario);
+    font-size: 12px;
+}
+
+.resultado-acceso {
+    display: none;
+}
+
+.resultado-acceso:target {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    overflow-y: auto;
+    background: var(--oscuro);
+}
+
+.resultado-caja {
+    width: 100%;
+    max-width: 420px;
+    margin: auto;
+    text-align: center;
+}
+
+.rayo-destello {
+    width: 90px;
+    height: 135px;
+    margin: 0 auto 30px;
+}
+
+.resultado-acceso:target .rayo-destello {
+    animation: encender-rayo 850ms ease-out both;
+}
+
+.resultado-caja h2 {
+    font-size: 27px;
+    line-height: 1.2;
+}
+
+.resultado-caja > p:not(.acceso-etiqueta) {
+    color: var(--texto-secundario);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.resultado-inicio {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 8px;
+    color: var(--texto);
+    text-underline-offset: 4px;
+}
+
+/* Animacion del rayo */
+@keyframes encender-rayo {
+    0% {
+        opacity: 0;
+        transform: scale(.75);
+    }
+
+    45% {
+        opacity: 1;
+        transform: scale(1.12);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 650px) {
+    .login-main {
+        padding: 28px 16px;
+    }
+
+    .acceso {
+        grid-template-columns: 1fr;
+    }
+
+    .acceso-presentacion {
+        padding: 24px;
+        position: relative;
+    }
+
+    .acceso-presentacion h1 {
+        font-size: 30px;
+        margin-top: 18px;
+        padding-right: 55px;
+    }
+
+    .acceso-presentacion h1 br {
+        display: none;
+    }
+
+    .acceso-presentacion p {
+        margin-bottom: 0;
+        max-width: none;
+    }
+
+    .rayo-grande {
+        position: absolute;
+        right: 22px;
+        top: 48px;
+        width: 34px;
+        height: 52px;
+        margin: 0;
+    }
+
+    .acceso-firma {
+        display: none;
+    }
+
+    .acceso-formulario {
+        padding: 28px 24px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .resultado-acceso:target .rayo-destello {
+        animation: none;
+    }
+}
